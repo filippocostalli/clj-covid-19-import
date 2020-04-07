@@ -1,0 +1,9 @@
+{;;:input-file-csv "E:/tmp/Recepta/Ante/sdo_sirai/sdo_sirai_20200302.csv"
+ :input-file-csv "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv"
+ ;;:input-file-csv "E:/tmp/medicodigitale/covid19/COVID-20-master/dati-regioni/dpc-covid19-ita-regioni.csv"
+ :covid19-db {:dbtype "postgres"
+              :host "10.10.115.8"
+              ;;:host "localhost"
+              :dbname "covid_19"
+              :username "postgres"
+              :password "marno"}}
