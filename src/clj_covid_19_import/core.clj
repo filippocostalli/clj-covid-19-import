@@ -12,7 +12,7 @@
   [& args]
   (let [dbspec-covid19 (:covid19-db conf/configuration)
         ^HikariDataSource ds-covid19 (connection/->pool HikariDataSource dbspec-covid19)
-        regione-data (csvservice/parse-data)]
+        regione-data (csvservice/parse-alldata-regione)]
         ;;data-to-insert (filter #(pc-dato-regione-dao/exists ds-covid19 %) regione-data)]
     (log/info "Application started")
     (pc-dato-regione-dao/delete! ds-covid19)

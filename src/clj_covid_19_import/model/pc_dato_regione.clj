@@ -18,10 +18,6 @@
       true
       false)))
 
-
-
-
-
 (defn delete!
   [datasource]
   (let [query (-> (hh/delete-from :protciv_dati_regione))]

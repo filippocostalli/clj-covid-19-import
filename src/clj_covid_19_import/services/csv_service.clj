@@ -5,15 +5,19 @@
     [clj-covid-19-import.conf :as conf]
     [clojure.string :as str]))
 
-(def input-data-csv
+(def input-data-regioni-csv
   (ultra-csv.core/read-csv
-    (:input-file-csv conf/configuration) {:header? false :skip 1}))
+    (:input-file-reg conf/configuration) {:header? false :skip 1}))
+
+(def input-data-province-csv
+  (ultra-csv.core/read-csv
+    (:input-file-pro conf/configuration) {:header? false :skip 1}))
 
 
 (defn checknil [v]
   (if v v 0))
 
-(defn parse-data-fc-datiregione [v]
+(defn parse-data-regione [v]
     ;;(println v)
     {:data (myutils/string->date (str (nth v 0)))
      :stato (nth v 1)
@@ -32,6 +36,23 @@
      :totale_casi (nth v 15)
      :tamponi (nth v 16)})
 
-(defn parse-data
+(defn parse-data-provincia [v]
+      {:data (myutils/string->date (str (nth v 0)))
+       :stato (nth v 1)
+       :codice-regione (nth v 2)
+       :denominazione-regione (str/upper-case (nth v 3))
+       :codice-provincia (nth v 4)
+       :denominazione-provincia (str/upper-case (nth v 5))
+       :sigla-provincia (nth v 6)
+       :lat (nth v 7)
+       :long (nth v 8)
+       :totale_casi (nth v 9)})
+
+(defn parse-alldata-regione
   []
-  (map parse-data-fc-datiregione input-data-csv))
+  (map parse-data-regione input-data-regioni-csv))
+
+
+(defn parse-alldata-provincia
+  []
+  (map parse-data-provincia input-data-province-csv))
