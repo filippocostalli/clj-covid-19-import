@@ -1,6 +1,6 @@
 # clj-covid-19-import
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to import COVID-19 italian government data.
 
 ## Usage
 
