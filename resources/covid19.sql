@@ -51,3 +51,24 @@ CREATE TABLE protciv_dati_regione(
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );
+
+CREATE TABLE protciv_dati_provincia(
+  id SERIAL NOT NULL,
+  data DATE NOT NULL,
+  stato	CHAR(3) NOT NULL,
+  codice_regione INT NOT NULL,
+  denominazione_regione	TEXT NOT NULL,
+  codice_provincia INT NOT NULL,
+  denominazione_provincia	TEXT NOT NULL,
+  sigla_provincia	CHAR(2) NOT NULL,
+  lat	FLOAT NOT NULL,
+  long FLOAT NOT NULL,
+  totale_casi	INT NOT NULL DEFAULT 0,
+  note_it	TEXT,
+  note_en TEXT,
+  CONSTRAINT protciv_dati_provincia_pk PRIMARY KEY (id),
+  CONSTRAINT prov_codice_regione_fk FOREIGN KEY (codice_regione)
+        REFERENCES regione (regione_id) MATCH FULL
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
