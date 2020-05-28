@@ -33,6 +33,3 @@
     (clean! ds-covid19)
     (log/info (str "Region data inserted: " (deref insert-regione)))
     (log/info (str "Province data inserted: " (deref insert-provincia)))))
-    ;;(log/info (str "Region data to insert: " (count regione-data)))))
-    ;;(doseq [rec regione-data] (pc-dato-regione-dao/insert! ds-covid19 rec))
-    ;;(doseq [rec provincia-data] (pc-dato-provincia-dao/insert! ds-covid19 rec))))
